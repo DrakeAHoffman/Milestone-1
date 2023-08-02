@@ -3,23 +3,30 @@
   {
     padding: 0;
     margin: 0;
-    font-family: 'Itim', cursive;
-
+    /* font-family: 'Itim', cursive; */
+    font-family: 'Caveat', cursive;
+    
  }
 
   .background {
     background-color: #12181B;
     height: 100vh;
     padding-top: 1px;
-
+    background-image: url('./TicTacToe.png');
+   
+    
  }
 
  .title {
-    color: palevioletred;
+    color: whitesmoke;
     text-align: center;
     font-size: 40px;
     margin-top: 10%;
-   
+    
+    
+
+    
+    
 
  }
 
@@ -79,5 +86,15 @@
     font-size: 20px;
     margin-left: em;
     cursor: pointer;
+    
    
  }
+ 
+ #platform {
+   background-color: #12181B;
+   margin: auto;
+   width: 500px;
+   opacity: .90;
+ }
+
+ 
