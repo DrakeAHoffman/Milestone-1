@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const resetButton = document.querySelector('#reset');
     const announcer = document.querySelector('.announcer');
 
-    let board = ['', '', '', '', '', '', '', '', '',];
+    let board = ['', '', '', '', '', '', '', '', '', '', '', '',];
     let currentPlayer = 'X';
     let isGameActive = true;
 
@@ -24,7 +24,8 @@ window.addEventListener('DOMContentLoaded', () => {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6]
+    [2, 4, 6],
+    [9,10,11]
    ];
 
 function handleResultValidation() {
@@ -77,10 +78,21 @@ function handleResultValidation() {
     }
 
    const changePlayer = () => {
+    let playerLetter = document.getElementById("playerLetter")
     playerDisplay.classList.remove(`player${currentPlayer}`);
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    //currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    if (currentPlayer === 'X') {
+       currentPlayer = 'O' 
+       playerLetter.textContent="O"
+    }
+    else if (currentPlayer === 'O') {
+        currentPlayer = 'X'
+        playerLetter.textContent="X"
+    }
     playerDisplay.classList.add(`player${currentPlayer}`);
    }
+
+
 
    const userAction = (tile, index) => {
     if(isValidAction(tile) && isGameActive) {
@@ -93,7 +105,7 @@ function handleResultValidation() {
    }
 
     const resetBoard = () => {
-        board = ['', '', '', '', '', '', '', '', '',];
+        board = ['', '', '', '', '', '', '', '', '', '', '', '',];
         isGameActive = true;
         announcer.classList.add('hide');
 

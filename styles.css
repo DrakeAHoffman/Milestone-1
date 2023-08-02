@@ -15,10 +15,12 @@
  }
 
  .title {
-    color: white;
+    color: palevioletred;
     text-align: center;
     font-size: 40px;
     margin-top: 10%;
+   
+
  }
 
  .display {
@@ -71,10 +73,11 @@
  #reset {
     background-color: red;
     color: white;
-    padding: 8px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 10px;
     border: none;
     font-size: 20px;
-    margin-left: 1em;
+    margin-left: em;
     cursor: pointer;
+   
  }
