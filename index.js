@@ -48,22 +48,31 @@ function handleResultValidation() {
         isGameActive = false;
         return;
     }
-    if (!board.includes(''))
-        announce(TIE);
+     else {
+         announce(TIE);
+        
+       // announcer.innerHTML = 'Tie';
+    }
+       // announce(TIE);
+       // announcer.innerHTML = 'Tie';
 }
 
    const announce = (type) => {
+    console.log('before', announcer)
+        //isGameActive = false;
+    //announcer.classList.remove('hide');
+    console.log("after",announcer)
     switch(type){
         case PLAYERO_WON:
-            announcer.innerHTML = 'Player <span class="playerO>O</span> Won';
+            announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
             break;
         case PLAYERX_WON:
             announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
             break;
         case TIE:
-            announcer.innerText = 'Tie';
+            announcer.innerHTML = 'Tie';
     }
-    announcer.classList.remove('hide');
+   // announcer.classList.remove('hide');
    };
 
    const isValidAction = (tile) => {
@@ -79,7 +88,8 @@ function handleResultValidation() {
 
    const changePlayer = () => {
     let playerLetter = document.getElementById("playerLetter")
-    playerDisplay.classList.remove(`player${currentPlayer}`);
+     playerDisplay.classList.remove(`player${currentPlayer}`);
+     //console.log("test",playerDisplay) 
     //currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     if (currentPlayer === 'X') {
        currentPlayer = 'O' 
@@ -89,7 +99,8 @@ function handleResultValidation() {
         currentPlayer = 'X'
         playerLetter.textContent="X"
     }
-    playerDisplay.classList.add(`player${currentPlayer}`);
+    playerDisplay.classList.add(`player${currentPlayer}`); 
+    //console.log("test2",playerDisplay)
    }
 
 
@@ -107,17 +118,19 @@ function handleResultValidation() {
     const resetBoard = () => {
         board = ['', '', '', '', '', '', '', '', '', '', '', '',];
         isGameActive = true;
-        announcer.classList.add('hide');
+        announcer.innerHTML = '';
 
         if(currentPlayer === 'O') {
             changePlayer();
         }
         tiles.forEach(tile => {
             tile.innerText = '';
-            tile.classList.remove('PlayerX');
-            tile.classList.remove('PlayerO');
+            tile.classList.remove('playerX');
+            tile.classList.remove('playerO');
         });
     }
+
+
 
    tiles.forEach( (tile, index) => {
     tile.addEventListener('click', () => userAction(tile, index));
